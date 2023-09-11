@@ -4,7 +4,7 @@
 **Maven** is OpenSource  
 **Maven** is from Apache Software Foundation  
 
-#What is a build process?
+## What is a build process?  
 Software Build in simpler terms is an activity to translate the human-readable source code into the efficient executable program.  
 Basically, Build is the process of creating the application program for a software release, by taking all the relevant source code files and compiling them and then creating a build artefact, such as binaries or executable program, etc.
 # Build Tools
