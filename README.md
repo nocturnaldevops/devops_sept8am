@@ -34,3 +34,12 @@ Maven Lifecycle comprises of three stages
 # What is POM?  
 A Project Object Model or POM is the fundamental unit of work in Maven. It is an XML file that contains information about the project and configuration details used by Maven to build the project. It contains default values for most projects. Examples for this is the build directory, which is target; the source directory, which is src/main/java; the test source directory, which is src/test/java; and so on. When executing a task or goal, Maven looks for the POM in the current directory. It reads the POM, gets the needed configuration information, then executes the goal.
 
+## Assignment:
+Create an EC2 instance (ubuntu22.04)  
+Install maven: sudo apt-get install -y maven  
+clone the repo: https://github.com/nocturnaldevops/Project1.git  
+build the artifact : mvn package (make sure you run the command from the location where pom.xml is present).  
+Identify the build (mark down the location)  
+
+Other repos: https://github.com/koddas/war-web-project.git   
+             https://github.com/jenkins-docs/simple-java-maven-app.git
