@@ -36,6 +36,7 @@ A Project Object Model or POM is the fundamental unit of work in Maven. It is an
 
 ## Assignment:
 Create an EC2 instance (ubuntu22.04)  
+update the apt repo: sudo apt-get update  
 Install maven: sudo apt-get install -y maven  
 clone the repo: https://github.com/nocturnaldevops/Project1.git  
 build the artifact : mvn package (make sure you run the command from the location where pom.xml is present).  
@@ -43,3 +44,14 @@ Identify the build (mark down the location)
 
 Other repos: https://github.com/koddas/war-web-project.git   
              https://github.com/jenkins-docs/simple-java-maven-app.git
+
+Create an EC2 instance (ubuntu 22.04)  
+update the apt repo: sudo apt-get update  
+Install tomcat9 : sudo apt-get install -y tomcat9
+Verify tomcat installation by running the command : sudo systemctl status tomcat9  
+Verify tomcat availability by reaching to the url: http://publicipserver:8080  
+
+## Copy the artifact from Server1 to Server2  
+#### use scp command
+server1: /home/ubuntu/Project1/target/devops.war  
+server2: /var/lib/tomcat9/webapps/
