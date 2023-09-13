@@ -55,3 +55,45 @@ Verify tomcat availability by reaching to the url: http://publicipserver:8080
 #### use scp command
 server1: /home/ubuntu/Project1/target/devops.war  
 server2: /var/lib/tomcat9/webapps/
+
+
+# Solution  
+BuildServer Ec2 Instance1  
+userdata: include shell script  
+#!/bin/bash  
+sudo apt-get update  
+sudo apt-get install -y maven  
+
+
+TestServer Ec2 Instance2  
+Edit network and open port 8080  
+userdata: include shell script  
+#!/bin/bash  
+sudo apt-get update  
+sudo apt-get install -y tomcat9
+
+To change the hostnames of servers:  
+**buildserver:** sudo hostnamectl set-hostname buildserver  
+**testserver:** sudo hostnamectl set-hostname testserver  
+
+
+clone repository into ec2instance1 (buildserver)  
+git clone https://github.com/koddas/war-web-project.git  
+mvn package  
+copy the artifact  
+scp devops.war ubuntu@172.31.33.143:/var/lib/tomcat9/webapps/app1.war  (fails!)
+
+on the build server  
+ssh-keygen  (hit enther thrice)
+cat /home/ubuntu/.ssh/id_rsa.pub and copy the content  
+
+
+
+On the test server  
+change the permission of tomcat9 directory  
+sudo chmod o+w -R /var/lib/tomcat9
+echo "copied content id_rsa.pub from buildserver"  >> /home/ubuntu/.ssh/authorized_keys
+
+From the build server again  
+scp devops.war ubuntu@privIPtest:/var/lib/tomcat9/artifact.war  
+open a browser: http://publicipoftest:artifact
